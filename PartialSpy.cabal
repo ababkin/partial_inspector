@@ -1,0 +1,45 @@
+name:                PartialSpy
+version:             0.1.0.0
+description:         Collection of tools for event logs exploration of applications built with Ruby on Rails framework.
+license:             MIT
+license-file:        LICENSE
+author:              Alex Babkin
+maintainer:          ababkin@gmail.com
+build-type:          Simple
+cabal-version:       >=1.8
+
+Flag Haste-inst
+  Description: either if it is being compiled with haste-inst or with cabal
+  Default: False
+
+
+executable PartialSpy
+  if flag(haste-inst)
+    hs-source-dirs: src
+    main-is: PartialSpy.hs
+    buildable: True
+    ghc-options: --output-html
+    build-depends:
+        base >= 4 && < 5
+      , haste-lib
+      , transformers
+      , monad-loops
+      , split
+
+  else
+    hs-source-dirs: src
+    main-is:        PartialSpy.hs
+    ghc-options:    -static -Wall
+    buildable: True
+    build-depends:
+        base >= 4 && < 5
+      , text
+      , mtl
+      , stm
+      , transformers
+      , parsec
+      , haste-compiler
+      , monad-loops
+      , split
+    extensions:    GeneralizedNewtypeDeriving
+
