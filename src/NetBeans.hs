@@ -13,8 +13,7 @@ import           Vim.Netbeans                 (runForkedNetbeans, Event (..), Ne
 
 import qualified Vim.Netbeans.Protocol        as P
 
-import           Types.API                    (Action (..))
-
+import           Types.Action              (Action(..))
 
 
 netBeans :: MVar String -> MVar Action -> IO ()

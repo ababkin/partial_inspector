@@ -1,4 +1,4 @@
-name:                PartialSpy
+name:                PartialInspector
 version:             0.1.0.0
 description:         Collection of tools for event logs exploration of applications built with Ruby on Rails framework.
 license:             MIT
@@ -12,23 +12,20 @@ Flag Haste-inst
   Description: either if it is being compiled with haste-inst or with cabal
   Default: False
 
-
-executable PartialSpy
+executable PartialInspector
   if flag(haste-inst)
     hs-source-dirs: src
-    main-is: PartialSpy.hs
+    main-is: PartialInspector.hs
     buildable: True
     ghc-options: --output-html
     build-depends:
         base >= 4 && < 5
       , haste-lib
       , transformers
-      , monad-loops
-      , split
 
   else
     hs-source-dirs: src
-    main-is:        PartialSpy.hs
+    main-is:        PartialInspector.hs
     ghc-options:    -static -Wall
     buildable: True
     build-depends:
@@ -39,7 +36,5 @@ executable PartialSpy
       , transformers
       , parsec
       , haste-compiler
-      , monad-loops
-      , split
+      , network
     extensions:    GeneralizedNewtypeDeriving
-

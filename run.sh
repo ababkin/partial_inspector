@@ -1,2 +1,2 @@
-cabal install && haste-inst install && ./Railoscopy
+cabal install && haste-inst install && ./PartialInspector
 
